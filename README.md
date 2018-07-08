@@ -42,6 +42,3 @@ We use Turf.js and Mapquest-Routing for spatial analysis.
 First, Find the nearest poi(point of interest) of each facilites from selected house.
 Next, Calculate the distance and time to each facilites.
 Finally, Mark the icon of facililtes and show the converted score with graph.
-
-
-## How to use
