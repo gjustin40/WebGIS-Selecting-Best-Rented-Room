@@ -1,0 +1,238 @@
+.chartWrapper {
+    position: relative;
+    padding-left : 30px;
+    
+}
+
+.chartWrapper > canvas {
+    position: absolute;
+    left: 0;
+    top: 0;
+    pointer-events:none;
+}
+.chartAreaWrapper {
+  overflow-x: scroll;
+    position: relative;
+    width: 100%;
+}
+
+.chartAreaWrapper2 {
+  
+    position: relative;
+    height: 300px;
+}
+body {
+    background-color:#418b75;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+    border:20px solid #14291e;
+    border-radius: 20px;
+}
+
+#main {
+    color: white;
+    text-align: center;
+    width:100%;
+    height:1000px;
+    font-weight: 3;
+
+}
+/*main css*/
+#main_img{
+    border:10px solid #004910;
+    border-radius: 50%;
+    height:520px;
+    width:550px;
+    background: #84dba7;
+    display: inline-block;
+    transition: transform .5s; 
+}
+#main_img:hover {
+    transform: scale(2); 
+}
+#main_house{
+    display: inline-block;
+    width: 450px;
+    height: 450px;
+    transition: transform .5s; 
+background-color: none;
+}
+
+#main_house:hover {
+    transform: scale(1.15); 
+}
+
+.text {
+    background-color: #ffffff;
+    color: black;
+    font-size: 16px;
+    padding: 16px 32px;
+}
+
+.col{
+    padding:0;
+}
+.col.col-1{
+    padding:0;
+    margin-left: 5px;
+    height:800px;
+text-align: center;
+}
+
+h1,
+h3 {
+ font-size: 50px;
+    padding: 5%;
+}
+
+h1,
+p:nth-child(2) {
+    text-align: center;
+}
+
+#map {
+    width: 100%;
+    height: 800px;
+    margin: 0 auto;
+    padding-right: 5px;
+
+}
+
+h1 {
+    font-size: 50px;
+    margin-bottom: 0;
+}
+h2{
+font-size: 60px;
+color: white;
+text-align: center;
+margin-top: 30px;
+margin-bottom: 30px;
+}
+
+div p:nth-child(2) {
+    font-size: 12px;
+    margin-top: 0;
+}
+
+ul,
+ol {
+    padding-left: 10px;
+}
+
+img {
+    width: 30px;
+    height: 30px;
+}
+
+#myprofile {
+    width: 100%;
+    height: 100%;
+}
+
+.sidenav {
+    height: 800px;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgb(6, 54, 77);
+    overflow-x: hidden;
+}
+
+.sidenav a {
+    padding: 80px 0px 85px 0px;
+    text-decoration: none;
+    font-size: 20px;
+    color: white;
+    display: block;
+    border-top: 1px solid #373737;
+    border-bottom: 1px solid #373737;
+    text-align: center;
+    width:100%;
+}
+
+.sidenav a:hover {
+    color:black;
+    background: powderblue;
+    border:5px solid black;
+}
+#school{
+    width:auto;
+    height:auto;
+}
+
+/*animation*/
+
+#pan {
+    width: 90px;
+    height: 30px;
+    position: absolute;
+    background-color: rgb(128, 128, 128);
+}
+
+#cctv_row {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    background-color: red;
+    visibility: hidden;
+}
+
+#cctv_mid {
+    width: 60px;
+    height: 30px;
+    position: absolute;
+    background-color: yellow;
+    visibility: hidden;
+}
+
+#cctv_high {
+    width: 90px;
+    height: 30px;
+    position: absolute;
+    background-color: green;
+    visibility: hidden;
+}
+/*full screen css*/
+.leaflet-control-fullscreen a {
+    background:#fff url(../img/fullscreen.png) no-repeat 0 0;
+    background-size:26px 52px;
+    }
+    .leaflet-touch .leaflet-control-fullscreen a {
+      background-position: 2px 2px;
+      }
+    .leaflet-fullscreen-on .leaflet-control-fullscreen a {
+      background-position:0 -26px;
+      }
+    .leaflet-touch.leaflet-fullscreen-on .leaflet-control-fullscreen a {
+      background-position: 2px -24px;
+      }
+  
+  /* Do not combine these two rules; IE will break. */
+  .leaflet-container:-webkit-full-screen {
+    width:100%!important;
+    height:100%!important;
+    }
+  .leaflet-container.leaflet-fullscreen-on {
+    width:100%!important;
+    height:100%!important;
+    }
+  
+  .leaflet-pseudo-fullscreen {
+    position:fixed!important;
+    width:100%!important;
+    height:100%!important;
+    top:0!important;
+    left:0!important;
+    z-index:99999;
+    }
+  
+  @media
+    (-webkit-min-device-pixel-ratio:2),
+    (min-resolution:192dpi) {
+      .leaflet-control-fullscreen a {
+        background-image:url(img/fullscreen@2x.png);
+      }
+    }

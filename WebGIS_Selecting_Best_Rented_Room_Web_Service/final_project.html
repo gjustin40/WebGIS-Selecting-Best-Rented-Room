@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>final_project</title>
+    <!--Chart-->
+
+    <!--Leaflet-->
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+    <!--Mapquest-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/0.7.7/leaflet.js"></script>
+    <!--Sidebar-->
+    <link rel="stylesheet" href="src/L.Control.Sidebar.css" />
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+
+    <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+    <!--Turf-->
+    <script src="https://api.tiles.mapbox.com/mapbox.js/plugins/turf/v2.0.0/turf.min.js"></script>
+    <!--Jquery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="stylesheet" href="style/final_project.css">
+</head>
+
+<body>
+    <div id='main' class="container-fluid text-center">
+        <h1 class="txt-rotate" data-period="2000" data-rotate='[ "내가 원하던 바로 그 집!"]'></h1>
+        <a href=#mapping>
+            <div id="main_img">
+
+                <img id='main_house' src="img/house.png">
+
+            </div>
+        </a>
+        <h2 class="txt-rotate" data-period="2000" data-rotate='[ "&gt;&gt; 집 주변 교통/유흥/교육 등 공간분석   &lt;&lt;"]'></h2>
+    </div>
+    <div id="sidebar">
+        <h1>집을 고르세요</h1>
+
+        <p></p>
+
+        <p>
+            <b style="padding-left : 10px;">도보 기준(4.5km/h)</b>
+        </p>
+
+        <ul>
+            <ol>
+                <img src="img/play22.png" alt=""> 소요시간 :
+                <span id='play'></span>
+            </ol>
+            <ol>
+                <img src="img/hospital22.png" alt=""> 소요시간 :
+                <span id='hospital'></span>
+            </ol>
+            <ol>
+                <img src="img/market22.png" alt=""> 소요시간 :
+                <span id='market'></span>
+            </ol>
+            <ol>
+                <img src="img/school22.png" alt=""> 소요시간 :
+                <span id='school_t'></span>
+            </ol>
+            <ol>
+                <img src="img/station.png" alt=""> 소요시간 :
+                <span id='station'></span>
+            </ol>
+            <ol>
+                <img src="img/cctv.png" alt=""> 방범강도 :
+                <span id='pan'>
+                    <span id='cctv_row'></span>
+                    <span id='cctv_mid'></span>
+                    <span id='cctv_high'></span>
+                </span>
+            </ol>
+        </ul>
+        <!--Chart-->
+        <div class="chart-container" style="position: relative; height:30vh; width:100%;">
+            <canvas id="myChart1"></canvas>
+        </div>
+        <p style="padding-left : 25%; font-size : 20px;">총점 :
+            <span id="target" style="font-size: 10px; color: red;">0 점</span>
+        </p>
+    </div>
+    <div id='mapping'>
+        <h2 style="font-size : 60px;">
+            <hr> M A P
+            <hr> </h2>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col col-1">
+                    <div class="sidenav">
+                        <a href="#main">MAIN</a>
+                        <a href="#map">자유검색</a>
+                        <a href="#rank">점수분포</a>
+                        <a href="#developer">개발자</a>
+
+                    </div>
+                </div>
+                <div class="col col">
+                    <div id='map'></div>
+                    <a href="https://github.com/Turbo87/leaflet-sidebar/">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <h2 id='rank'>Rank</h2>
+    </div>
+    <div class="chartWrapper">
+        <div class="chartAreaWrapper">
+            <div class="chartAreaWrapper2" style="width : 15000px; height:900px;">
+                <canvas id="myChart2"></canvas>
+            </div>
+        </div>
+
+        <canvas id="myChartAxis" height="300" width="0"></canvas>
+    </div>
+
+    <div class="container-fluid" id="developer">
+        <h2>
+            <hr> Developer
+            <hr>
+        </h2>
+        <div class="container-fluid padding">
+            <div class="row padding">
+                <div class="col-md-6">
+                    <div class="card">
+                        <img class="card-img-top" id="myprofile" src="img/silver.jpg" alt="">
+                        <div class="card-body">
+                            <h4 class="card-title">조은지</h4>
+                            <p class="card-text" style="font-size : 20px;">환경에너지공간융합학과 15학번</p>
+                            <a href="https://www.facebook.com/profile.php?id=100015422353407" class="btn btn-outline-secondary" target="_blank">프로필 보기</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="card">
+                        <img class="card-img-top" id="myprofile" src="img/boatman.jpg" alt="">
+                        <div class="card-body">
+                            <h4 class="card-title">사공용협</h4>
+                            <p class="card-text" style="font-size : 20px;">환경에너지공간융합학과 15학번</p>
+                            <a href="https://www.facebook.com/justin.sakong" class="btn btn-outline-secondary" target="_blank">프로필 보기</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--Number increas-->
+    <script src="http://code.jquery.com/jquery-1.7.0.min.js"></script>
+    <script src="javascript/jquery.color.min.js"></script>
+    <script src="javascript/jquery.animateNumber.min.js"></script>
+    <!--Chart-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+    <!--Leaflet-->
+    <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+    <!--Sidebar-->
+    <script src="src/L.Control.Sidebar.js"></script>
+    <!--Geojson files-->
+    <script src='geojson/cctv4326.geojson'></script>
+    <script src='geojson/cctv4326_2.geojson'></script>
+    <script src='geojson/house4326.geojson'></script>
+    <script src='geojson/poi4326.geojson'></script>
+    <script src='geojson/random_house.geojson'></script>
+    <script src='geojson/station4326.geojson'></script>
+    <!--Turf-->
+    <script src='https://npmcdn.com/@turf/turf/turf.min.js'></script>
+
+    <!--Mapquest-->
+    <script src="https://www.mapquestapi.com/sdk/leaflet/v2.2/mq-map.js?key=a2oypO7gzFVVgyCBofRdC80xVJK8ItA4"></script>
+    <script src="https://www.mapquestapi.com/sdk/leaflet/v2.2/mq-routing.js?key=a2oypO7gzFVVgyCBofRdC80xVJK8ItA4"></script>
+
+    <!--Javascript-->
+    <script src='javascript/final_project.js'></script>
+
+    <!--Sidebar Javascript-->
+    <script>
+        var sidebar = L.control.sidebar('sidebar', {
+            closeButton: true,
+            position: 'left'
+        });
+        map.addControl(sidebar);
+
+        setTimeout(function () {
+            sidebar.show();
+        }, 500);
+
+        map.on('click', function () {
+            sidebar.hide();
+        })
+
+        sidebar.on('show', function () {
+            console.log('Sidebar will be visible.');
+        });
+
+        sidebar.on('shown', function () {
+            console.log('Sidebar is visible.');
+        });
+
+        sidebar.on('shown', function () {
+            console.log()
+        })
+
+        sidebar.on('hide', function () {
+            console.log('Sidebar will be hidden.');
+        });
+
+        sidebar.on('hidden', function () {
+            console.log('Sidebar is hidden.');
+        });
+
+        L.DomEvent.on(sidebar.getCloseButton(), 'click', function () {
+            console.log('Close button clicked.');
+        });
+    </script>
+</body>
+
+</html>
