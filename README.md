@@ -1,7 +1,7 @@
 # WebGIS : Selecting Best Rented Room Web Service
 This is the project making web service that helps user to choose best rented room in Gwangjin-gu, Seoul, Korea.
 If you want to know the best house to live, use this service.
-This map offers information of time to each facility.
+This map offers information of required time to each facility.
 
 
 ## Interface
